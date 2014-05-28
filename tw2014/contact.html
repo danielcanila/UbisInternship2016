@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pensiunea Oltea</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<meta content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="body">
+	<header class="firstHeader">
+		<img src="img/logo.gif">
+		<nav><ul>
+			<li><a href="index.html">Acasa</a></li>
+			<li><a href="localizare.html">Localizare</a></li>
+			<li><a href="cazare.html">Cazare</a></li>
+			<li><a href="rezervari.html">Rezervari</a></li>
+			<li class="checked"><a href="contact.html">Contact</a></li>
+		</ul></nav>
+	</header>
+		
+	<div class="mainContent" >
+		<div class="content">	
+				<article class="articleContent">	
+					<header>
+						<h1>Contact Pensiunea Oltea</h1>
+					</header>
+					
+					<content>
+						<p>Pensiunea Oltea este situata in orasul Campulung Moldovenesc, Str. Alexandru Vlahuta nr 20. Pentru mai multe detalii in legatura cu locatia pensiunii va rog sa vizualizati 	
+						<a href="localizare.html">Harta-Localizare</a> </p>
+						<p>Pentru mai multe informatii referitor la rezervari va rog sa folositi pagina dedicata acestei sectiuni:<a href="rezervari.html">Rezervari</a>. Daca doriti mai multe detalii in timp real va rugam sa ne contactati la numarul de telefon: <a href="#">0723109090</a> persoana de contact <a href="#">Hodor</a>.</p>
+					
+						<form id="contact" action="contact.php" method="post">
+          <div class="form_settings">
+            <p><span>Name</span><input class="contact" type="text" name="your_name"/></p>
+            <p><span>Email Address</span><input class="contact" type="text" name="your_email"  /></p>
+            <p><span>Message</span><textarea class="contact textarea" rows="5" cols="50" name="your_message"></textarea></p>
+            <p style="line-height: 1.7em;">To help prevent spam, please enter the answer to this question:</p>
+            <p><span><?php echo $number_1; ?> + <?php echo $number_2; ?> = ?</span><input type="text" name="user_answer" /><input type="hidden" name="answer" value="<?php echo $answer; ?>" /></p>
+            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="send" /></p>
+          </div>
+        </form>
+					</content>
+				
+				</article>
+		</div>
+	</div>
+	<footer class="mainFooter">
+		<p>Copyright &copy; 2014  <a href="#">Pisarciuc Ionut-Daniel</a></p>
+	</footer>
+</body>
+</html>

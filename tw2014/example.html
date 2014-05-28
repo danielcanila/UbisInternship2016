@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+    <title>
+      Simple and Effective Photo Gallery with HTML and JavaScript
+    </title>
+
+    <style type="text/css">
+      .thumbnails img {
+        height: 80px;
+        
+        padding: 1px;
+        margin: 0 10px 10px 0;
+      }
+
+     
+
+      .preview img {
+       
+        padding: 1px;
+        width: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="gallery" align="center">
+      <h3>Simple and Effective Photo Gallery with HTML and JavaScript</h3><br/>
+
+      <div class="thumbnails">
+        <img onclick="preview.src=img1.src" id="img1" src="img/p2.jpg" alt="Image Not Loaded"/>
+        <img onclick="preview.src=img2.src" id="img2" src="img/p3.jpg" alt="Image Not Loaded"/>
+        <img onclick="preview.src=img3.src" id="img3" src="img/p4.jpg" alt="Image Not Loaded"/>
+        <img onmouseover="preview.src=img4.src" id="img4" src="http://bit.ly/2LHyDW" alt="Image Not Loaded"/>
+        <img onclick="preview.src=img5.src" id="img5" src="http://bit.ly/2wyHSR" alt="Image Not Loaded"/>
+        <img onmouseover="preview.src=img6.src" id="img6" src="http://bit.ly/yRo1i" alt="Image Not Loaded"/>
+      </div><br/>
+
+      <div class="preview" align="center">
+        <img id="preview" src="http://bit.ly/2rz3hy" alt="No Image Loaded"/>
+      </div><br/>
+    </div>
+  </body>
+</html>
