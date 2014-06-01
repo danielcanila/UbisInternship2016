@@ -2,10 +2,23 @@
 <html>
 <head>
 	<title>Pensiunea Oltea</title>
+
+	<script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<script language="javascript" type="text/javascript" src="js/style.js"></script>
 	<meta content="width=device-width, initial-scale=1.0">
 
+<script type="text/javascript">
+		$(document).ready(function() {
+				$('.fancybox-buttons').fancybox({
+				closeBtn  : false
+			});	
+		});
+</script>
 
 </head>
 
@@ -32,10 +45,12 @@
 						<p>Situata in centrul orasului Campulung Moldovenesc, dar departe de agitatia orasului, in apropiere de raul Moldova si cu o priveliste deosebita a padurilor Bucovinei, va asteapta sa-i fiti oaspeti intr-un cadru deosebit de primitor.</p>
 						<p>Pensiunea Oltea poate constitui locul ideal unde tu si familia ta, grupul tau de prieteni, va puteti odihni sau organiza vizite la cele mai frumoase manastiri ale Bucovinei.</p>
 						<p>Intimitate, liniste, confort, aer de munte si proximitate fata de cele mai vestite manastiri ale Bucovinei.</p>
-					
-							<img src="img/p1.jpg" id="img1" onClick="resize('img1');" onDblClick="resizeBack('img1');"/>
-							<img src="img/p2.jpg" id="img2" onClick="resize('img2');" onDblClick="resizeBack('img2');">
-							<img src="img/p3.jpg" id="img3" onClick="resize('img3');" onDblClick="resizeBack('img3');">
+							
+
+
+							<a class="fancybox-buttons" data-fancybox-group="button" href="img/p1.jpg"><img src="img/p1.jpg" /></a>
+							<a class="fancybox-buttons" data-fancybox-group="button" href="img/p2.jpg"><img src="img/p2.jpg" /></a>
+							<a class="fancybox-buttons" data-fancybox-group="button" href="img/p3.jpg"><img src="img/p3.jpg" /></a>
 						
 					</content>
 				
@@ -43,7 +58,7 @@
 		</div>
 	</div>
 	<footer class="mainFooter">
-		<p>Copyright &copy; 2014  <a href="#">Pisarciuc Ionut-Daniel</a></p>
+		<p>Copyright &copy; 2014  <a class="orangeMarked" href="#">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
 	</footer>
 </body>
 </html>

@@ -37,7 +37,7 @@ a:link, a:visited {
 	text-decoration: none;
 }
 
-a:hover, a:checked {
+.orangeMarked:hover{
 	background-color: #CF5C3F;
 	color: #fff;
 	text-decoration: none;
