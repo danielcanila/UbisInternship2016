@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Iun 2014 la 12:22
+-- Generation Time: Jun 01, 2014 at 10:25 PM
 -- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- PHP Version: 5.5.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `clients`
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `active` int(1) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`user_id`, `username`, `password`, `active`) VALUES
+(1, 'daniel.pisarciuc', 'password', 1),
+(2, 'daniel.canila', 'password', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clients`
 --
 
 CREATE TABLE IF NOT EXISTS `clients` (
@@ -39,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `rezervation`
+-- Table structure for table `rezervation`
 --
 
 CREATE TABLE IF NOT EXISTS `rezervation` (
@@ -49,13 +71,14 @@ CREATE TABLE IF NOT EXISTS `rezervation` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `totalCost` int(11) NOT NULL,
+  `status` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `rooms`
+-- Table structure for table `rooms`
 --
 
 CREATE TABLE IF NOT EXISTS `rooms` (
@@ -69,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Salvarea datelor din tabel `rooms`
+-- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `type`, `ac`, `fridge`, `price`) VALUES

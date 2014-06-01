@@ -130,7 +130,7 @@ a:link, a:visited {
 	float: left;
 	margin-top: 1%;
 	margin-bottom: 3%;
-	padding-left: 50%;
+	padding-left: 40%;
 	color: #FFF;
 }
 .mainFooter p {
@@ -232,6 +232,7 @@ a:link, a:visited {
 
 
 #contact-form input[type="text"],
+#contact-form input[type="password"],
 #contact-form input[type="email"],
 #contact-form textarea,
 #contact-form button[type="submit"] {
@@ -256,6 +257,7 @@ a:link, a:visited {
 	font-weight:900;
 }
 #contact-form input[type="text"],
+#contact-form input[type="password"],
 #contact-form input[type="email"],
 #contact-form textarea {
 	width:90%;

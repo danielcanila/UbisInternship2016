@@ -1,3 +1,9 @@
 //status tablee rezervation
 
 ALTER TABLE `rezervation` ADD `status` INT(1) NOT NULL ;
+
+
+//am adaugat un tabel admin cu 3 coloane (user_id PK Auto increment, username, password,active) 
+//active(dupa acest camp vom verifica daca un account este activ sau nu respectiv 1 sau 0)
+//de exemplu am: (1 , daniel.pisarciuc, password , 1) = account activ;
+//(2 , daniel.canila , password , 0) = account inactiv;
