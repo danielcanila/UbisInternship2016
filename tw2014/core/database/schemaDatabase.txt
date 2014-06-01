@@ -1,0 +1,79 @@
+schema database:
+	tip de camera : 
+				-single
+				-double
+				-triple
+	mase incluse :
+				-mic dejun
+				-pranz
+				-cina
+	facilitati :
+				-sauna
+				-masaj
+				-aer conditionat
+				-pets
+				-frigider
+
+
+
+1) clients
+	-id (pk)
+	-nume
+	-prenume
+	-telefon
+	-email
+	
+	
+	
+	room( 1, single,da,nu,da)
+	room( 1,single,da,nu,nu);
+2) rooms
+	 -id (pk)
+	 -type of room (single,double,triple)
+	 -aer conditionat (da/nu)  
+	 -frigider (da/nu)
+	 -price
+3) rezervation
+	 -id
+	 -roomId (fk)
+	 -clientId (fk)
+	 -startDate
+	 -endDate
+	 -frigider - nu
+	 -aerConditionat - da
+	 -totalCost
+	 
+	 4 - single
+			(da,da) 50 lei / noapte (overbooking)
+			(da,da) 50 lei / noapte
+			(da,nu ) 45 lei /noapte
+			(nu,da ) 45 lei/ noapte
+			(nu,nu) 40 lei /noapte
+ 	 7 - double
+			(da,da) 70 lei / noapte (overbooking)
+			(da,da) 70 lei / noapte
+			(da,da) 70 lei / noapte 
+			(da,nu) 65 lei / noapte
+			(da,nu) 65 lei / noapte
+			(nu,da) 65 lei / noapte
+			(nu,da) 65 lei / noapte
+			(nu,nu) 60 lei / noapte
+	 4 - triple
+			(da,da) 90 lei / noapte (overbooking)
+			(da,da) 90 lei / noapte
+			(da,nu ) 85 lei / noapte
+			(nu,da ) 85 lei / noapte
+			(nu,nu) 80 lei / noapte
+	 
+	 
+	 
+	 Nume : 
+	 Prenume : 
+	 Nr telefon : 
+	 Email : 
+	 
+	 
+	 Tip Camera : 
+	 Interval : 
+	 Facilitati : Aer Conditionat ( da/nu ) / Frigider ( da/nu ) / Pets (da/nu)
+	 Pret (label)
