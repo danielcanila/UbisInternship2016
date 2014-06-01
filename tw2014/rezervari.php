@@ -28,7 +28,7 @@ include 'core/init.php';
 		<div class="content">	
 				<article class="articleContent">	
 					<header>
-						<h1>Rezervari</h1>
+						<h1>Rezervari Pensiunea Oltea</h1>
 					</header>
 					
 					<content>
@@ -40,26 +40,46 @@ include 'core/init.php';
 			}
             	
 			?>
-			 <form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <ul>
-                <li>
-                    &nbsp; Nume/Prenume*:<br>
-                    &nbsp; <input type="text" name="username">
-                </li>
-                <li>
-                    &nbsp; E-mail*:<br>
-                    &nbsp; <input type="text" name="email"> <br><br>
-                </li>
-                <li>
-                    &nbsp; Numar de Telefon*:<br>
-                    &nbsp; <input type="text" name="phonenumber"> <br><br>
-                </li>
-                <li>
-                &nbsp; <input type="submit" value="Rezerva">
-             
-                </li>
-                </ul>
-              </form>
+			   <form id="contact-form" action="contact.php" method="post">
+						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
+						<div>
+							<label>
+								<span>Nume*: </span>
+								<input placeholder="Nume" type="text" tabindex="1" name="name" required autofocus>
+							</label>
+						</div>
+						<div>
+							<label>
+								<span>Prenume*: </span>
+								<input placeholder="Prenume" type="text" tabindex="1" name="surname" required autofocus>
+							</label>
+						</div>
+						<div>
+							<label>
+								<span>Numar de telefon*: </span>
+								<input placeholder="Numar de telefon" type="text" tabindex="1" name="" required autofocus>
+							</label>
+						</div>
+						<div>
+							<label>
+								<span>Email*: </span>
+								<input placeholder="Adresa de E-mail" type="email" tabindex="2" name="your_email"  required>
+							</label>
+						</div>	
+						<div>
+							<label>
+								<span>Camera: </span>
+									<select name="camera">
+									    <option value="1 persoana">1 persoane</option>
+									    <option value="2 persoane">2 persoane</option>
+									    <option value="3 persoane">3 persoane</option>
+									</select>
+							</label>
+						</div>	
+						<div>
+							<button name="rezerva" type="submit" id="rezerva">Rezerva Camera</button>
+						</div>
+					</form>
 					</content>
 				
 				</article>
