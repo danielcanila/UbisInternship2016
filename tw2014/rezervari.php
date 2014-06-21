@@ -35,7 +35,7 @@ include 'core/init.php';
 				<article class="articleContent">	
 				<content>
 		
-<<<<<<< HEAD
+
 			   <form id="contact-form" action="clientRegistration.php" method="post" >
 						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
 						
@@ -44,7 +44,7 @@ include 'core/init.php';
 						<label for="to">to</label>
 						<input type="text" id="to" name="to"/>
 						<div> Numar de camere </div>
-=======
+
 			<content>
 			   <form id="contact-form" action="contact.php" method="post">
 					
@@ -62,7 +62,6 @@ include 'core/init.php';
 						</div>	
 						<div class="nrCamere">
 						<div> Numar de camere</div>
->>>>>>> ea0048e98e5b15ab2405d3d0a3c2996417eba786
 						<select id="numberOfRooms" name="numberOfRooms">
 						  <option value="1">1</option>
 						  <option value="2">2</option>
