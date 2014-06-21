@@ -39,14 +39,93 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					
 					<content>
 							<?php 
-				
+				$numberOfSingleRooms = 0;
+				$numberOfDoubleRooms = 0;
+				$numberOfTripleRooms = 0;
+				$singleRooms;
+				$doubleRooms;
+				$tripleRooms;
+
      		 if (isset($_POST['rezerva'])) {
      		 
-     		 	 $from = trim(htmlspecialchars($_POST['from']));
-     		 	 $to = trim(htmlspecialchars($_POST['to']));
+     		 	 $from = date("Y-m-d", strtotime(trim(htmlspecialchars($_POST['from']))));
+     		 	 $to = date("Y-m-d", strtotime(trim(htmlspecialchars($_POST['to']))));
      		 	 $numberOfRooms = trim(htmlspecialchars($_POST['numberOfRooms']));
-     		 	 $room0 = trim(htmlspecialchars($_POST['room0']));
+     		 	 // rooms type
+     		 	 $rooms = array();
+     		 	 for ($i = 0; $i < intval($numberOfRooms); $i++) {
+    			 array_push($rooms, trim(htmlspecialchars($_POST['room'.$i])));
+				 }
 
+				foreach ($rooms as $value) {
+    			 if($value == 'single') {
+    			 	$numberOfSingleRooms++;
+    			 	}
+    			 	else
+    			 		if($value == 'double') {
+    			 			$numberOfDoubleRooms++;
+    			 		}
+    			 			else
+    			 				if($value == 'triple') {
+    			 					$numberOfTripleRooms++;
+    			 				}
+
+				}	
+		
+				if($numberOfSingleRooms>0)
+				{	
+					echo 'Single<br>';
+					$count = 0;
+					$singleRooms = getRooms($from,$to,'1');
+					if(mysql_num_rows($singleRooms)==0){
+						echo 'No rooms availabe';
+					}
+					else
+					while ($row = mysql_fetch_row($singleRooms)) {
+						if(($count++) == $numberOfSingleRooms)
+							break;
+			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					}
+				}
+				echo '<br>';
+				if($numberOfDoubleRooms>0)
+				{
+					echo 'Double<br>';
+					$count = 0;
+					$doubleRooms = getRooms($from,$to,'2');
+					if(mysql_num_rows($doubleRooms)==0){
+						echo 'No rooms availabe';
+					}
+					else
+					while ($row = mysql_fetch_row($doubleRooms)) {
+			    		if(($count++) == $numberOfDoubleRooms)
+							break;
+			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					}
+				}
+				echo '<br>';
+				if($numberOfTripleRooms>0)
+				{
+					echo 'Triple<br>';
+					$count = 0;
+					$tripleRooms = getRooms($from,$to,'3');
+					if(mysql_num_rows($tripleRooms)==0){
+						echo 'No rooms availabe';
+					}
+					else
+					while ($row = mysql_fetch_row($tripleRooms)) {
+			    		if(($count++) == $numberOfTripleRooms)
+							break;
+			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					}
+				}
+
+				
+				
+
+				
+
+				/*
      		 	 $register_data = array(
                            'clientId' => '1',
                            'roomId' => '1',
@@ -58,7 +137,8 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
                            'dinner' => '0',
                            'spa' => '0'
                           );
-     		 	 insertReservation($register_data);
+				*/
+     		 	 //insertReservation($register_data);
      			 }
 			?>
 			   <form id="contact-form" action="clientRegistration.php" method="post">
