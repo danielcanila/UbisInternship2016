@@ -34,19 +34,9 @@ include 'core/init.php';
 		<div class="content">	
 				<article class="articleContent">	
 				<content>
-		
-
-			   <form id="contact-form" action="clientRegistration.php" method="post" >
-						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
-						
-						<label for="from">From</label>
-						<input type="text" id="from" name="from"/>
-						<label for="to">to</label>
-						<input type="text" id="to" name="to"/>
-						<div> Numar de camere </div>
 
 			<content>
-			   <form id="contact-form" action="contact.php" method="post">
+			   <form id="contact-form" action="clientRegistration.php" method="post">
 					
 						<div class="check-in">
 							<label for="from">
