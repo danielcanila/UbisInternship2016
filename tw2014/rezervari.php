@@ -33,39 +33,8 @@ include 'core/init.php';
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-<<<<<<< HEAD
-=======
-					<header>
-						<h1>Rezervari Pensiunea Oltea</h1>
-					</header>
-					
-					<content>
+				<content>
 		
-			   <form id="contact-form" action="clientRegistration.php" method="post">
-						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
-						
-						<label for="from">From</label>
-						<input type="text" id="from" name="from"/>
-						<label for="to">to</label>
-						<input type="text" id="to" name="to"/>
-						<div> Numar de camere </div>
-						<select id="numberOfRooms" name="numberOfRooms">
-						  <option value="1">1</option>
-						  <option value="2">2</option>
-						  <option value="3">3</option>
-						  <option value="4">4</option>
-						  <option value="5">5</option>
-						  <option value="6">6</option>
-						  <option value="7">7</option>
-						  <option value="8">8</option>
-						  <option value="9">9</option>
-						  <option value="10">10</option>
-						  <option value="11">11</option>
-						  <option value="12">12</option>
-						</select>
-						<div id="selectareTipCamere"></div>
->>>>>>> 98ac4a00e6a5e594b24873751cffa260dd454e76
-
 			<content>
 			   <form id="contact-form" action="contact.php" method="post">
 					
@@ -81,7 +50,24 @@ include 'core/init.php';
 								<input type="text" tabindex="1" id="to" name="to" required autofocus>
 							</label>
 						</div>	
-					
+						<div class="nrCamere">
+						<div> Numar de camere</div>
+						<select id="numberOfRooms" name="numberOfRooms">
+						  <option value="1">1</option>
+						  <option value="2">2</option>
+						  <option value="3">3</option>
+						  <option value="4">4</option>
+						  <option value="5">5</option>
+						  <option value="6">6</option>
+						  <option value="7">7</option>
+						  <option value="8">8</option>
+						  <option value="9">9</option>
+						  <option value="10">10</option>
+						  <option value="11">11</option>
+						  <option value="12">12</option>
+						</select>
+						<div id="selectareTipCamere"></div>
+					</div>
 						<div>
 							<button name="rezerva" type="submit" id="rezerva">Rezerva Camera</button>
 						</div>
