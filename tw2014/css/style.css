@@ -1,7 +1,7 @@
 body {
 	background-image: url('../img/cover.jpg');
 	color: #000305;
-	font-size: 90%; 
+	font-size: 95%; 
 	font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -21,7 +21,15 @@ h1 {
 	margin-bottom: 5%;
 	text-align:center;
 	}
+h3 {
 
+    padding: 14px;
+    font-style: italic;
+    background: rgb(225, 225, 225);
+    border-radius: 3px 3px 3px 3px;
+    font-size:1.2em;
+    border: 1px solid white;
+}
 
 a {
 	outline: 0;
