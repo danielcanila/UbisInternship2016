@@ -308,3 +308,39 @@ a:link, a:visited {
 	transition:background-color 0.3s ease-in-out;
 }
 
+ 		#table {
+            width: 100%;
+            height: auto;
+            text-align:left;
+            color: #60606;
+
+        }
+
+        #table thead tr th
+        {   text-align: center;
+            padding: 0.4em;
+            background-color: #808080;
+            color: white;
+        }
+ 
+       
+        #table tbody tr:nth-child(odd) {
+           background-color: #fafafa;
+           text-align: center;
+
+        }
+ 
+       
+        #table tbody tr:nth-child(odd):hover
+        {
+            cursor:pointer;
+            background-color: silver;     
+            color: white;
+        }
+ 
+
+        #table td {
+           vertical-align:middle;
+           padding: 0.5em;
+        }
+ 
