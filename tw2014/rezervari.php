@@ -39,7 +39,7 @@ include 'core/init.php';
 					
 					<content>
 		
-			   <form id="contact-form" action="clientRegistration.php" method="post">
+			   <form id="contact-form" action="clientRegistration.php" method="post" >
 						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
 						
 						<label for="from">From</label>

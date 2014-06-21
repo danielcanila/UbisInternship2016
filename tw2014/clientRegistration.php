@@ -43,11 +43,12 @@ include 'core/init.php';
      		 	 $to = trim(htmlspecialchars($_POST['to']));
      		 	 $numberOfRooms = trim(htmlspecialchars($_POST['numberOfRooms']));
      		 	 $room0 = trim(htmlspecialchars($_POST['room0']));
+
      		 	 $register_data = array(
                            'clientId' => '1',
                            'roomId' => '1',
-                           'startDate' => $from,
-                           'endDate' => $to,
+                           'startDate' => date("Y-m-d", strtotime($from)),
+                           'endDate' => date("Y-m-d", strtotime($to)),
                            'totalCost' => '2000',
                            'breakfast' => '0',
                            'lunch' => '0',

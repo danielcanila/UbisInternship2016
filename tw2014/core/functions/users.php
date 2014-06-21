@@ -46,7 +46,7 @@ function insertReservation($register_data){
 	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
 	$data = '\''.implode('\',\'',$register_data) . '\'';
 
-	 echo $fields;
+	 echo $data;
 	 echo mysql_query("INSERT INTO `rezervation` ($fields) VALUES ($data)");
 }
 

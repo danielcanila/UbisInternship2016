@@ -60,3 +60,4 @@ function displayRooms(){
 			}
 		$("#selectareTipCamere").html(roomsHTML);
 	}
+
