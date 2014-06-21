@@ -1,6 +1,9 @@
 <?php 
 
 include 'core/init.php';
+
+   
+
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +35,27 @@ include 'core/init.php';
 					</header>
 					
 					<content>
-			<?php 
-				$query = sprintf("SELECT name FROM utilizatori");
-				$result = mysql_query($query);
-				while ($row = mysql_fetch_assoc($result)) {
-				    echo $row['name'];	   
-			}
-            	
+							<?php 
+				
+     		 if (isset($_POST['rezerva'])) {
+     		 
+     		 	 $from = trim(htmlspecialchars($_POST['from']));
+     		 	 $to = trim(htmlspecialchars($_POST['to']));
+     		 	 $numberOfRooms = trim(htmlspecialchars($_POST['numberOfRooms']));
+     		 	 $room0 = trim(htmlspecialchars($_POST['room0']));
+     		 	 $register_data = array(
+                           'clientId' => '1',
+                           'roomId' => '1',
+                           'startDate' => $from,
+                           'endDate' => $to,
+                           'totalCost' => '2000',
+                           'breakfast' => '0',
+                           'lunch' => '0',
+                           'dinner' => '0',
+                           'spa' => '0'
+                          );
+     		 	 insertReservation($register_data);
+     			 }
 			?>
 			   <form id="contact-form" action="contact.php" method="post">
 						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>

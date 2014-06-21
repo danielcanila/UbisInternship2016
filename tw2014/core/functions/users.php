@@ -40,4 +40,14 @@ function user_data($user_id){
 		return $data;	
 	}
 }
+
+function insertReservation($register_data){
+
+	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
+	$data = '\''.implode('\',\'',$register_data) . '\'';
+
+	 echo $fields;
+	 echo mysql_query("INSERT INTO `rezervation` ($fields) VALUES ($data)");
+}
+
 ?>

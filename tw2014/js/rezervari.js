@@ -43,3 +43,20 @@
     }
 		});
 	});
+
+$("#numberOfRooms")
+  .change(function () {
+	displayRooms();
+  }).change();
+
+
+function displayRooms(){
+		var id = 0;
+		var roomsHTML = "";
+		var maxNumber = $("#numberOfRooms").val();
+		for( var i =0;i < maxNumber;i++)
+			{
+				roomsHTML = roomsHTML + "<div><select id='room" + (id) + "' name='room" + (id++) + "'><option>single</option><option>double</option><option>triple</option></select></div>";
+			}
+		$("#selectareTipCamere").html(roomsHTML);
+	}
