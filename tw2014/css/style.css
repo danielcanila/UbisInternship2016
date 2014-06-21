@@ -51,6 +51,7 @@ a:link, a:visited {
 	text-decoration: none;
 }
 
+
 .firstHeader nav {
 	font-size: 18px;
 	height: 40px;
@@ -234,7 +235,14 @@ a:link, a:visited {
 	border-style:hidden;
 	}
 	
+	.check-in {
+	width: 100%;
 	
+	}
+	.check-out {
+	width: 100%;
+	
+	}
 
 }
 
@@ -262,7 +270,7 @@ a:link, a:visited {
 	color:#991D57;
 	display:block;
 	margin:5px 0;
-	font-weight:900;
+	font-weight:900px;
 }
 #contact-form input[type="text"],
 #contact-form input[type="password"],

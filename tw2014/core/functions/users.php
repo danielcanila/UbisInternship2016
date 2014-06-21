@@ -8,7 +8,6 @@ function logged_in(){
 function user_id_from_username($username){
 $username = sanitize($username);
 return mysql_result(mysql_query("SELECT `user_id` FROM `admin` WHERE `username` = '$username'"), 0 , 'user_id');
-
 }
 //check if the user is logged in
 function login($username,$password){
