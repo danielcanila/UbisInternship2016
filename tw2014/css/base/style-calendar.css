@@ -1,0 +1,14 @@
+
+#contact-form input[type="text"]{
+	width:60%;
+}
+
+.check-in{
+	width: 45%;
+	float: left;
+}
+.check-out {
+
+	width: 45%;
+	float: left;
+}

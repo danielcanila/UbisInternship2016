@@ -11,7 +11,7 @@ include 'core/init.php';
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<meta content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/base/jquery.ui.all.css">
-	<link rel="stylesheet" href="css/base/demos.css">
+	<link rel="stylesheet" href="css/base/style-calendar.css">
 	<script src="js/lib/jquery-1.10.2.js"></script>
 	<script src="js/lib/ui/jquery.ui.core.js"></script>
 	<script src="js/lib/ui/jquery.ui.widget.js"></script>
@@ -34,32 +34,29 @@ include 'core/init.php';
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-					<header>
-						<h1>Rezervari Pensiunea Oltea</h1>
-					</header>
-					
-					<content>
-			<?php 
-				$query = sprintf("SELECT name FROM utilizatori");
-				$result = mysql_query($query);
-				while ($row = mysql_fetch_assoc($result)) {
-				    echo $row['name'];	   
-			}
-            	
-			?>
-			   <form id="contact-form" action="contact.php" method="post">
-						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
-						
-						<label for="from">From</label>
-						<input type="text" id="from" name="from"/>
-						<label for="to">to</label>
-						<input type="text" id="to" name="to"/>
 
+			<content>
+			   <form id="contact-form" action="contact.php" method="post">
+					
+						<div class="check-in">
+							<label for="from">
+								<span>Check-in</span>
+								<input type="text" tabindex="1" name="from" id="from" required autofocus >
+							</label>
+						</div>					
+						<div class="check-out">
+							<label for="to">
+								<span>Check-out</span>
+								<input type="text" tabindex="1" id="to" name="to" required autofocus>
+							</label>
+						</div>	
+					
 						<div>
 							<button name="rezerva" type="submit" id="rezerva">Rezerva Camera</button>
 						</div>
-					</form>
-					</content>
+	
+				</form>
+			</content>
 				
 				</article>
 		</div>
