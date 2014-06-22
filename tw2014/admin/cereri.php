@@ -11,6 +11,15 @@ protect_page();
 
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
 	<meta content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+
+		function information(url) {
+	newwindow=window.open(url,'name','height=200,width=150');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+		</script>
 
 </head>
 
@@ -30,9 +39,40 @@ protect_page();
 					<header>
 						<h1>Clientii care sunt in curs de procesare</h1>
 					</header>
-					
 					<content  >
-						<p>Tabelul care contine cererile neconfirmate la momentul actual.</p>
+						<?php
+
+					$result = mysql_query("SELECT rezervation.id, rezervation.startDate, rezervation.endDate, rooms.type, rooms.price, clients.name , clients.phone FROM rezervation , rooms , clients") or die (mysql_error());
+						
+						echo "<table id='table'>";
+							echo " <thead>
+					               <tr><td colspan=7></td></tr>
+					                <tr>
+					                 <th>ID</th><th>Nume</th><th>Telefon</th><th>Data</th><th>Camere</th><th>Pret</th><th>Setari</th>
+					                </tr>
+					               </thead>";
+						 while( $query2 = mysql_fetch_array($result)) 
+							{        
+							$qw = $query2['id'];
+							echo "
+						             <tbody>
+					                 <tr>
+					         	    	 <td>".$query2['id']."</td>";
+					         	    	echo "<td>".$query2['name']."</td>";
+				             		  	echo "<td>".$query2['phone']."</td>";
+				             		  	echo "<td>".$query2['startDate']."<br>".$query2['endDate']."</td>";
+									 	
+										echo "<td>".$query2['type']."</td>";
+									 	echo "<td>".$query2['price']."</td>";
+									
+					 
+					   				echo "<td><form><input type='button' onclick=\"information('information.php?id=".$qw."')\" value='Extra'></form>&nbsp;&nbsp;&nbsp;";
+									echo "<form><input type='button' onclick=\"confirmRezervation('confirmRezervation.php?id=".$qw."')\" value='Accept'></form></td>";
+					                echo "</tr>
+					         		</tbody>"; 
+					         }
+							echo "</table>"; 
+						?>
 						<a href="logout.php">Log out</a>
 					</content>
 				
