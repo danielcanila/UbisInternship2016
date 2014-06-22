@@ -122,6 +122,12 @@ a:link, a:visited {
 	-webkit-border-radius: 5px;	
 
 }
+.content  ul li {
+		list-style: none; 
+		margin: 0 auto;
+		float: left; 
+		display: inline; 
+	}
 
 .content img {
 	width: 30%;
@@ -152,7 +158,20 @@ a:link, a:visited {
 	height:400px;
 	border-style:hidden;
 }
-
+.logoutAdmin input {
+	width: 10%;
+	float:right;
+	margin-bottom: 2%;
+	cursor:pointer;
+	border:none;
+	background-image: url('../img/button.gif');	
+	color:#FFF;
+	padding:5px;
+	border-radius:2px;
+}
+.logoutAdmin input:hover {
+	color:red;
+}
 @media only screen and (min-width : 150px) and (max-width : 780px)
 {
 	.body {
@@ -168,7 +187,8 @@ a:link, a:visited {
 		margin-bottom: 0;
 		
 	}	
-	.firstHeader nav ul {
+
+	.firstHeader nav ul{
 		list-style: none; 
 		margin: 0 auto;
 		padding-left: 0;
@@ -176,7 +196,7 @@ a:link, a:visited {
 	.firstHeader nav li {
 		margin-left: 0 auto;
 		width: 100%;
-	}	
+	}
 	.firstHeader nav a:link, .firstHeader nav a:visited {
 		color: #FFF;
 		display: block;
@@ -212,7 +232,12 @@ a:link, a:visited {
 	.content {
 		width: 100%;
 		float: left;
-	}	
+	}
+	.content ul li{
+		text-align: left;
+		width: 100%;
+	}
+
 	.content img {
 		width: 100%;
 		height: auto;
@@ -242,6 +267,33 @@ a:link, a:visited {
 	width: 100%;
 	}
 
+	#table thead { display: none; }
+  	#table tbody td { 
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+  	}
+  
+	#table tbody td:before { 
+    display: inline-block; 
+  }
+   #table form{
+	width: 100%;
+	float:left;
+	display: block;
+	margin:0 auto;
+	}
+	.logoutAdmin input {
+	width: 100%;
+	float:left;
+	margin-bottom: 30%;
+	}
+	#table form{
+		width: 100%;
+		margin: 0 auto;
+		float: left;
+		
+  	}
 }
 
 
@@ -254,12 +306,10 @@ a:link, a:visited {
 }
 #contact-form {
 	width: 90%;
-	margin: 2% auto;
-	
+	margin: 2% auto;	
 }
 
-#contact-form h2 {
-	
+#contact-form h2 {	
 	font-size:14px;
 	color:#991D57;
 }
@@ -307,40 +357,43 @@ a:link, a:visited {
 	-moz-transition:background 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out;
 }
+	
+	#table input 
+	{
+		cursor:pointer;
+		width:100%;
+		border:none;
+		background-image: url('../img/button.gif');	
+		color:#FFF;
+		margin:10px 0 5px;
+		padding:4px;
+		border-radius:2px;
+		float: left;
+		display: inline;
+	}
 
- 		#table {
-            width: 100%;
-            height: auto;
-            text-align:left;
-            color: #60606;
 
-        }
+	#table {
+    width: 100%;
+    color:#991D57; 
 
-        #table thead tr th
-        {   text-align: center;
-            padding: 0.4em;
-            background-color: #808080;
-            color: white;
-        }
- 
-       
-        #table tbody tr:nth-child(odd) {
-           background-color: #fafafa;
-           text-align: center;
+    }
 
-        }
- 
-       
-        #table tbody tr:nth-child(odd):hover
-        {
-            cursor:pointer;
-            background-color: silver;     
-            color: white;
-        }
- 
-
-        #table td {
-           vertical-align:middle;
-           padding: 0.5em;
-        }
- 
+   
+    #table thead tr th
+    {   text-align: center;
+        padding: 0.4em;
+        background:#991D57;
+        color: white;
+    }
+    #table tbody tr {
+       text-align: center;
+    }        
+    #table form{
+	width: 30%;
+	float:left;
+	margin-right: 3%;
+	display: block;
+}
+ 		
+ 		

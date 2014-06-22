@@ -14,12 +14,21 @@ protect_page();
 	<script type="text/javascript">
 
 		function information(url) {
-	newwindow=window.open(url,'name','height=200,width=150');
-	if (window.focus) {newwindow.focus()}
-	return false;
-}
+		newwindow=window.open(url,'name','height=200,width=150');
+		if (window.focus) {newwindow.focus()}
+		return false;
+	}
+	</script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+	<script>
 
-		</script>
+		function showRow(clientId){
+			var clientId =  $("#clientDetails" + clientId).toggle();					
+		}
+		  
+	
+	</script>
+
 
 </head>
 
@@ -36,47 +45,67 @@ protect_page();
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-					<header>
-						<h1>Clientii care sunt in curs de procesare</h1>
-					</header>
-					<content  >
+					
+					<content>
+					<div class="logoutAdmin">
+					<input type="button" value="LogOut" onclick="location.href = 'logout.php';">
+					</div>	
 						<?php
 
-					$result = mysql_query("SELECT rezervation.id, rezervation.startDate, rezervation.endDate, rooms.type, rooms.price, clients.name , clients.phone FROM rezervation , rooms , clients") or die (mysql_error());
+					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone, rezervation.startDate, rezervation.endDate, rezervation.totalCost, rezervation.breakfast, rezervation.dinner, rezervation.lunch, rezervation.spa, rooms.type FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.type INNER JOIN clients ON rezervation.clientId=clients.id GROUP BY clients.id ") or die (mysql_error());
 						
 						echo "<table id='table'>";
-							echo " <thead>
-					               <tr><td colspan=7></td></tr>
+								echo " <thead>
+					               <tr><td colspan=6></td></tr>
 					                <tr>
-					                 <th>ID</th><th>Nume</th><th>Telefon</th><th>Data</th><th>Camere</th><th>Pret</th><th>Setari</th>
-					                </tr>
-					               </thead>";
-						 while( $query2 = mysql_fetch_array($result)) 
+					                 <th>Nume</th><th>Telefon</th><th>Data</th><th>Pret</th><th>Setari</th>
+					                </tr>";
+					            echo "</thead>";
+					          while( $query2 = mysql_fetch_array($result)) 
 							{        
-							$qw = $query2['id'];
-							echo "
-						             <tbody>
-					                 <tr>
-					         	    	 <td>".$query2['id']."</td>";
-					         	    	echo "<td>".$query2['name']."</td>";
+							$clientId = $query2['id'];
+					            echo "<tbody>";
+					                echo "<tr>";
+										echo "<td>".$query2['name']."</td>";
 				             		  	echo "<td>".$query2['phone']."</td>";
 				             		  	echo "<td>".$query2['startDate']."<br>".$query2['endDate']."</td>";
-									 	
-										echo "<td>".$query2['type']."</td>";
-									 	echo "<td>".$query2['price']."</td>";
+									 	echo "<td>".$query2['totalCost']."</td>";
+					   					echo "<td><input type='button' value='Show/Hide' onclick=\"showRow(".$clientId.")\" ></td>";
+									echo "</tr>";
+								
+					             	echo "<tr>";
+					         			echo "<td rowspan='5' colspan='5'>";
+					         			echo "<ul id='clientDetails".$clientId."' style='display:none'>";
+					           		  	echo "<li>Nume/Prenume: ".$query2['name']."".$query2['surname']."</li><br>";
+					           		  	echo "<li>Numar telefon:".$query2['phone']." </li><br>";
+					           		  	 
+					           		  	echo "<li>Tip Camera:".$query2['type']." </li><br>";
+					           		  	echo "<li>".$query2['startDate']."<-->".$query2['endDate']."</li>";
+					           		  	echo "<br><li>Faciliati:".$query2['breakfast'].",".$query2['lunch'].",".$query2['dinner'].",".$query2['spa']."</li><br>";
+										
 									
-					 
-					   				echo "<td><form><input type='button' onclick=\"information('information.php?id=".$qw."')\" value='Extra'></form>&nbsp;&nbsp;&nbsp;";
-									echo "<form><input type='button' onclick=\"confirmRezervation('confirmRezervation.php?id=".$qw."')\" value='Accept'></form></td>";
-					                echo "</tr>
-					         		</tbody>"; 
-					         }
-							echo "</table>"; 
+										echo "<form><input type='button' onclick=\"confirmReservation('confirmReservation.php?id=".$clientId."')\" value='Accept'></form>";
+										echo "<form><input type='button' onclick=\"editClient('editClient.php?id=".$clientId.")\" value='Edit'></form>";
+										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$clientId."')\" value='Delete'></form>";	
+										
+					         							         			
+					         			echo "</ul>";
+					         			echo "</td>";
+					         			
+					         		echo "</tr>";
+					         		echo "</tbody>"; 
+					         	}	
+					      echo "</table>";  
+					   
+							
 						?>
-						<a href="logout.php">Log out</a>
+						
+			
+
 					</content>
 				
 				</article>
+
 		</div>
 	</div>
 	<footer class="mainFooter">
