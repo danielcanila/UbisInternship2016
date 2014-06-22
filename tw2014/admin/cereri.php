@@ -3,7 +3,6 @@ include '../core/init.php';
 protect_page();
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +10,18 @@ protect_page();
 
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
 	<meta content="width=device-width, initial-scale=1.0">
-	<script type="text/javascript">
-
-		function information(url) {
-		newwindow=window.open(url,'name','height=200,width=150');
-		if (window.focus) {newwindow.focus()}
-		return false;
-	}
-	</script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 	<script>
-
+		function deleteReservation(q){
+			var answer = confirm("Are you sure you want to delete this reservation?")
+			if (answer){
+				window.location = q;
+				alert("Reservation deleted.")
+			}
+			else{
+				
+			}
+		}
 		function showRow(clientId){
 			var clientId =  $("#clientDetails" + clientId).toggle();					
 		}
@@ -45,24 +45,32 @@ protect_page();
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-					
+				
 					<content>
 					<div class="logoutAdmin">
 					<input type="button" value="LogOut" onclick="location.href = 'logout.php';">
-					</div>	
-						<?php
+					</div>
 
-					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone, rezervation.startDate, rezervation.endDate, rezervation.totalCost, rezervation.breakfast, rezervation.dinner, rezervation.lunch, rezervation.spa, rooms.type FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.type INNER JOIN clients ON rezervation.clientId=clients.id GROUP BY clients.id ") or die (mysql_error());
+					
+			     <?php 
+       				
+
+					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone,reservationsdetails.reservationId, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id GROUP BY clients.id ") or die (mysql_error());
 						
 						echo "<table class='table'>";
 								echo " <thead>
 					               <tr><td colspan=6></td></tr>
 					                <tr>
-					                 <th>Nume</th><th>Telefon</th><th>Data</th><th>Pret</th><th>Setari</th>
+					                 <th>Nume</th>
+					                 <th>Telefon</th>
+					                 <th>Data</th>
+					                 <th>Pret</th>
+					                 <th>Setari</th>
 					                </tr>";
 					            echo "</thead>";
 					          while( $query2 = mysql_fetch_array($result)) 
 							{        
+							$reservationId = $query2['reservationId'];
 							$clientId = $query2['id'];
 					            echo "<tbody>";
 					                echo "<tr>";
@@ -84,9 +92,9 @@ protect_page();
 					           		  	echo "<br><li>Faciliati:".$query2['breakfast'].",".$query2['lunch'].",".$query2['dinner'].",".$query2['spa']."</li><br>";
 										
 									
-										echo "<form><input type='button' onclick=\"confirmReservation('confirmReservation.php?id=".$clientId."')\" value='Accept'></form>";
-										echo "<form><input type='button' onclick=\"editClient('editClient.php?id=".$clientId.")\" value='Edit'></form>";
-										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$clientId."')\" value='Delete'></form>";	
+										echo "<form action='cereri.php' ><input type='submit' name='contact_submitted' type='submit' id='contact-submit' value='Confirm'/></form>";
+										echo "<form><input type='button' onclick=\"editClient('editClient.php?id=".$reservationId.")\" value='Edit'/></form>";
+										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$reservationId."')\" value='Delete'/></form>";	
 										
 					         							         			
 					         			echo "</ul>";
@@ -99,9 +107,50 @@ protect_page();
 					   
 							
 						?>
-						
-			
+					<?php
+         			  $client = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id GROUP BY clients.id ") or die (mysql_error());
+					  $clientInfo = mysql_fetch_array($client);
+			          $to = 'ionutdny9@yahoo.com';
+			          $subject = 'Sent by:';
+			          $contact_submitted = 'Confirmat';
+			          function email_is_valid($email) {
+			            return preg_match('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i',$email);
+			          }
+			          if (!email_is_valid($to)) {
+			            echo '';
+			          }
+			       
+			         
+			         if (isset($_GET['contact_submitted'])) {
+			             
+			            $youremail = "ionutdny@gmail.com";
+			            $yourname = "Andrei";
+			            $yourmessage = "Mesaj trimis";
+			            $contact_name = "Name: ".$yourname;
+			            $message_text = "Message: ".$yourmessage;
+			            $user_answer = "raspuns";
+			           
+			             $message = "Hello,".$clientInfo['name']." ".$clientInfo['surname'].", we like to inform you that we just confirm your registration to our hotel.
+			           	
+			            </br>
+			            If you want to pay via paypal you can use the link given bellow, or you can pay at our reception.
+			            Total price per reservation is: ".$clientInfo['totalCost']." "."Have a nice day!
 
+			            ";
+			           
+			            $headers = "From: ".$youremail;
+			           if (email_is_valid($youremail) && !eregi("\r",$youremail) && !eregi("\n",$youremail) && $yourname != "" && $yourmessage != "") {
+			              mail($to,$subject,$message,$headers);
+			              $yourname = '';
+			              $youremail = '';
+			              $yourmessage = '';
+			              echo '<h1><a href="#">'.$contact_submitted.'</a></h1>';
+			            }
+			            else echo '';
+			          }
+       				?>
+		
+		
 					</content>
 				
 				</article>

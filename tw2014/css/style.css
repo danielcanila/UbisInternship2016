@@ -430,6 +430,7 @@ a:link, a:visited {
     }
     .table tbody tr th {
        text-align: center;
+      
     }        
     .table form{
 	width: 30%;
