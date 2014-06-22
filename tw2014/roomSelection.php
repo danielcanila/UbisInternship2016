@@ -113,31 +113,23 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 											    				<th>$row[1]</th>
 											    				<th>$row[0]</th>
 											    				<th>$perioada</th>
-<<<<<<< HEAD
-											    				<th class='utilitiesOfRoom$row[0]' >
-												    				<input type='checkbox'  name='breakfastOfRoom$row[0]'   class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='yes' 	onclick='updateSum($ini_array[breakfast],$rowNumber,1,this,$row[0],$numberOfDays)'/>Breakfast
-												    				<input type='checkbox'  name='lunchOfRoom$row[0]' 		class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='yes'	  	onclick='updateSum($ini_array[lunch],$rowNumber,1,this,$row[0],$numberOfDays)'/>Lunch
-												    				<input type='checkbox' 	name='dinnerOfRoom$row[0]' 		class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='yes'    	onclick='updateSum($ini_array[dinner],$rowNumber,1,this,$row[0],$numberOfDays)'/>Dinner
-												    				<input type='checkbox' 	name='spaOfRoom$row[0]' 		class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='yes'       	onclick='updateSum($ini_array[spa],$rowNumber,1,this,$row[0],$numberOfDays)'/>Spa
-=======
+
 											    				<th>
-											    				
-											    				
-											    				<span>Breakfast<br>
-												    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,1,this,$row[0],$numberOfDays)'>
-												    			
-												    			Lunch
-												       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,1,this,$row[0],$numberOfDays)'>
-												    			</span>
-												    			
-												    			<span>Dinner<br>
-												    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,1,this,$row[0],$numberOfDays)'>
-												    			
-												    			
-												    			Spa
-												    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,1,this,$row[0],$numberOfDays)'>
-											    				</span>
->>>>>>> origin/master
+												    				<span>Breakfast<br>
+													    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,1,this,$row[0],$numberOfDays)'>
+													    			
+													    			Lunch
+													       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,1,this,$row[0],$numberOfDays)'>
+													    			</span>
+													    			
+													    			<span>Dinner<br>
+													    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,1,this,$row[0],$numberOfDays)'>
+													    			
+													    			
+													    			Spa
+													    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,1,this,$row[0],$numberOfDays)'>
+												    				</span>
+
 											    				</th>
 											    				<th id='singleRoomPrice$rowNumber'>$row[2]</th>
 											    			  </tr>";
@@ -181,32 +173,23 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 											    				<th>$row[1]</th>
 											    				<th>$row[0]</th>
 											    				<th>$perioada</th>
-<<<<<<< HEAD
-											    				<th class='utilitiesOfRoom$row[0]' >
-													    				<input type='checkbox' name='breakfastOfRoom$row[0]' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='yes' 	onclick='updateSum($ini_array[breakfast],$rowNumber,2,this,$row[0],$numberOfDays)'/>Breakfast
-													    				<input type='checkbox' name='lunchOfRoom$row[0]' 	 class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='yes'	  		onclick='updateSum($ini_array[lunch],$rowNumber,2,this,$row[0],$numberOfDays)'/>Lunch
-													    				<input type='checkbox' name='dinnerOfRoom$row[0]' 	 class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='yes'    	onclick='updateSum($ini_array[dinner],$rowNumber,2,this,$row[0],$numberOfDays)'/>Dinner
-													    				<input type='checkbox' name='spaOfRoom$row[0]'  	 class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='yes'       	onclick='updateSum($ini_array[spa],$rowNumber,2,this,$row[0],$numberOfDays)'/>Spa
-											    				</th>
-=======
-											    				<th>
-												    			<span>Breakfast<br>
-												    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,2,this,$row[0],$numberOfDays)'>
-												    			
-												    			Lunch
-												       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,2,this,$row[0],$numberOfDays)'>
-												    			</span>
-												    			
-												    			<span>Dinner<br>
-												    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,2,this,$row[0],$numberOfDays)'>
-												    				
-												    			
-												    			Spa
-												    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,2,this,$row[0],$numberOfDays)'>
-											    				</span>	
 
-												    				</th>
->>>>>>> origin/master
+											    				<th>
+													    			<span>Breakfast<br>
+													    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,2,this,$row[0],$numberOfDays)'>
+													    			
+													    			Lunch
+													       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,2,this,$row[0],$numberOfDays)'>
+													    			</span>
+													    			
+													    			<span>Dinner<br>
+													    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,2,this,$row[0],$numberOfDays)'>
+													    				
+													    			
+													    			Spa
+													    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,2,this,$row[0],$numberOfDays)'>
+												    				</span>	
+																</th>
 											    				<th id='doubleRoomPrice$rowNumber'>$row[2]</th>
 											    			  </tr>";
 											    		$rowNumber++;
@@ -245,38 +228,24 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 														// limitare numar de camere
 														//if(($count++) == $numberOfTripleRooms)
 															//break;
-											    		echo "<tr>
-											    				<th>$row[1]</th>
-											    				<th>$row[0]</th>
-											    				<th>$perioada</th>
-											    				<th class='utilitiesOfRoom$row[0]'>
-												    				<input type='checkbox' name='breakfastOfRoom$row[0]' 	class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='yes'		 onclick='updateSum($ini_array[breakfast],$rowNumber,3,this,$row[0],$numberOfDays)'/>Breakfast
-												    				<input type='checkbox' name='lunchOfRoom$row[0]' 		class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='yes'	  		 onclick='updateSum($ini_array[lunch],$rowNumber,3,this,$row[0],$numberOfDays)'/>Lunch
-												    				<input type='checkbox' name='dinnerOfRoom$row[0]' 		class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='yes'    		 onclick='updateSum($ini_array[dinner],$rowNumber,3,this,$row[0],$numberOfDays)'/>Dinner
-												    				<input type='checkbox' name='spaOfRoom$row[0]'  		class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='yes'       		 onclick='updateSum($ini_array[spa],$rowNumber,3,this,$row[0],$numberOfDays)'/>Spa
-											    				</th>
-											    				<th id='tripleRoomPrice$rowNumber'>$row[2]</th>
-											    			  </tr>";
-														$rowNumber++;
-														}
-													    				<th>$row[1]</th>
+											    		
+																echo   "<th>$row[1]</th>
 													    				<th>$row[0]</th>
 													    				<th>$perioada</th>
 													    				<th>
-																    	<span>Breakfast<br>
-														    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,3,this,$row[0],$numberOfDays)'>
-														    				
-														    			Lunch
-														       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,3,this,$row[0],$numberOfDays)'>
-														    			</span>
-														    			
-														    			<span>Dinner<br>
-														    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,3,this,$row[0],$numberOfDays)'>
-														    				
-														    			
-														    			Spa
-														    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,3,this,$row[0],$numberOfDays)'>
-													    				</span>
+																	    	<span>Breakfast<br>
+															    			<input type='checkbox' class='RoomBreakfastCheckbox singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,3,this,$row[0],$numberOfDays)'>
+														
+															    			Lunch
+															       			<input type='checkbox' class='RoomLunchCheckbox singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,3,this,$row[0],$numberOfDays)'>
+															    			</span>
+															    			
+															    			<span>Dinner<br>
+															    			<input type='checkbox' class='RoomDinnerCheckbox singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,3,this,$row[0],$numberOfDays)'>
+															    		
+															    			Spa
+															    			<input type='checkbox' class='RoomSpaCheckbox singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,3,this,$row[0],$numberOfDays)'>
+														    				</span>
 
 														    			</th>
 													    				<th id='tripleRoomPrice$rowNumber'>$row[2]</th>
@@ -295,8 +264,6 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 																	' RON | Spa : '.$ini_array["spa"].' RON</p>';
 															
 
-															echo '<div id="testButtonToBeremoved"><button onclick="testareFunctie(50,70,90,5,8,6,10)">CLICK ME TEST</button></div>';
-															echo '<input type="text" id="totalReservationCost" name="totalReservationCost" value="0" readonly/>';
 															echo '<input type="text" name="startDate" value="'.$from.'" hidden/>';
 															echo '<input type="text" name="endDate" value="'.$to.'" hidden/>';
 															echo '<input type="text" id="selectedRooms" name="selectedRooms" value="" hidden/>';
