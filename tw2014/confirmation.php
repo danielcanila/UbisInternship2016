@@ -38,11 +38,11 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					
 					<content>
 						<?php 
-						if (isset($_SESSION['visited'])) {
-						    header("Location: rezervari.php");
-						} else {
-						    $_SESSION['visited'] = true;
-						}
+						// if (isset($_SESSION['visited'])) {
+						//     header("Location: rezervari.php");
+						// } else {
+						//     $_SESSION['visited'] = true;
+						// }
 						$totalCost = trim(htmlspecialchars($_POST['totalReservationCost']));
 						$startDate = trim(htmlspecialchars($_POST['startDate']));
 						$endDate  = trim(htmlspecialchars($_POST['endDate']));
