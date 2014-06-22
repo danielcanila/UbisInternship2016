@@ -12,6 +12,7 @@ protect_page();
 	<meta content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 	<script>
+		
 		function deleteReservation(q){
 			var answer = confirm("Are you sure you want to delete this reservation?")
 			if (answer){
@@ -22,8 +23,21 @@ protect_page();
 				
 			}
 		}
-		function showRow(clientId){
-			var clientId =  $("#clientDetails" + clientId).toggle();					
+		
+		function confirmClient(d){
+				window.location = d;
+		}
+		function editClient(e){
+			alert("EditClient");
+		}
+		function showRow(clientId,elem){
+			var clientId =  $("#clientDetails" + clientId).toggle();	
+			if(elem.value == "Show"){
+				elem.value =  "Hide";
+			}
+			else {
+			elem.value = "Show";
+			}
 		}
 		  
 	
@@ -37,6 +51,7 @@ protect_page();
 		<img src="../img/logo.gif">
 		<nav><ul>
 			<li class="checked"><a href="cereri.php">Cereri</a></li>
+			<li><a href="confirm.php">Confirmat</a></li>
 			<li><a href="istoric.php">Istoric</a></li>
 			<li><a href="../index.html">WebSite</a></li>
 		</ul></nav>
@@ -55,7 +70,7 @@ protect_page();
 			     <?php 
        				
 
-					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone,reservationsdetails.reservationId, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id GROUP BY clients.id ") or die (mysql_error());
+					$result = mysql_query("SELECT clients.id, clients.email,clients.name, clients.surname, clients.phone,reservationsdetails.reservationId, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id WHERE reservations.status = '0' AND DATE(reservationsdetails.startDate) > DATE(NOW()) GROUP BY clients.id ") or die (mysql_error());
 						
 						echo "<table class='table'>";
 								echo " <thead>
@@ -71,14 +86,16 @@ protect_page();
 					          while( $query2 = mysql_fetch_array($result)) 
 							{        
 							$reservationId = $query2['reservationId'];
+
 							$clientId = $query2['id'];
+							$clientEmail = $query2['email'];
 					            echo "<tbody>";
 					                echo "<tr>";
 										echo "<td>".$query2['name']."</td>";
 				             		  	echo "<td>".$query2['phone']."</td>";
 				             		  	echo "<td>".$query2['startDate']."<br>".$query2['endDate']."</td>";
 									 	echo "<td>".$query2['totalCost']."</td>";
-					   					echo "<td><input type='button' value='Show/Hide' onclick=\"showRow(".$clientId.")\" ></td>";
+					   					echo "<td><input type='button' value='Show' onclick=\"showRow(".$clientId.",this)\" ></td>";
 									echo "</tr>";
 								
 					             	echo "<tr>";
@@ -92,9 +109,10 @@ protect_page();
 					           		  	echo "<br><li>Faciliati:".$query2['breakfast'].",".$query2['lunch'].",".$query2['dinner'].",".$query2['spa']."</li><br>";
 										
 									
-										echo "<form action='cereri.php' ><input type='submit' name='contact_submitted' type='submit' id='contact-submit' value='Confirm'/></form>";
-										echo "<form><input type='button' onclick=\"editClient('editClient.php?id=".$reservationId.")\" value='Edit'/></form>";
-										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$reservationId."')\" value='Delete'/></form>";	
+										
+										echo "<form><input type='button' onclick=\"confirmClient('confirmClient.php?email=".$clientEmail."&id=".$reservationId."')\" value='Confirm'/></form>";
+										echo "<form><input type='button' onclick=\"editClient('editClient.php?id=".$reservationId."')\" value='Edit'/></form>";
+										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?email=".$clientEmail."&id=".$reservationId."')\" value='Decline'/></form>";	
 										
 					         							         			
 					         			echo "</ul>";
@@ -105,7 +123,7 @@ protect_page();
 					         	}	
 					      echo "</table>";  
 					   
-							
+						
 						?>
 					<?php
          			  $client = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id GROUP BY clients.id ") or die (mysql_error());

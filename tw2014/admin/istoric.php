@@ -20,6 +20,7 @@ protect_page();
 		<img src="../img/logo.gif">
 		<nav><ul>
 			<li><a href="cereri.php">Cereri</a></li>
+			<li><a href="confirm.php">Confirm</a></li>
 			<li class="checked"><a href="istoric.php">Istoric</a></li>
 			<li ><a class="website" href="../index.html">WebSite</a></li>
 		</ul></nav>
