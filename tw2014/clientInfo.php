@@ -44,32 +44,65 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 						$startDate = trim(htmlspecialchars($_POST['startDate']));
 						$endDate  = trim(htmlspecialchars($_POST['endDate']));
 						$selectedRooms = trim(htmlspecialchars($_POST['selectedRooms']));
+						//'[{"Id": "1", "b": "1", "l": "0", "d" : "0" , "s" : "1" },{"Id": "1", "b": "1", "l": "0", "d" : "0" , "s" : "1" }]';
 						
-						$selectedRoomsArray = explode(" ",$selectedRooms);
-						
-						// for($i = 0; $i <  sizeof($selectedRooms); $i++) {
-						// 		if(isset($_POST['breakfastOfRoom'.$selectedRooms[$i]])) {
-						// 					$breakFastCheckbox = $_POST['breakfastOfRoom'.$selectedRooms[$i]];
-						// 					echo $breakFastCheckbox;
-						// 				}
-						// 		if(isset($_POST['lunchOfRoom'.$selectedRooms[$i]])) {
-						// 					$breakFastCheckbox = $_POST['lunchOfRoom'.$selectedRooms[$i]];
-						// 					echo $breakFastCheckbox;
-						// 				}
-						// 		if(isset($_POST['dinnerOfRoom'.$selectedRooms[$i]])) {
-						// 					$breakFastCheckbox = $_POST['dinnerOfRoom'.$selectedRooms[$i]];
-						// 					echo $breakFastCheckbox;
-						// 				}
-						// 		if(isset($_POST['spaOfRoom'.$selectedRooms[$i]])) {
-						// 					$breakFastCheckbox = $_POST['spaOfRoom'.$selectedRooms[$i]];
-						// 					echo $breakFastCheckbox;
-						// 				}
+						$roomJsonObject = '[';
+						$selectedRoomsArray= array();
+						if(strlen($selectedRooms)>1){
+							$selectedRoomsArray = explode(" ",$selectedRooms);
+						}
+						else{
+							$selectedRoomsArray[0] = $selectedRooms;
+						}
+						for($i = 0; $i <  sizeof($selectedRoomsArray); $i++) {
+								
+								$jsonObject = ',{';
+								if($i== 0)
+									$jsonObject = '{';
+								
+								$jsonObject = $jsonObject.' "id" : "'.$selectedRoomsArray[$i].'" , ';
+								if(isset($_POST['breakfastOfRoom'.$selectedRoomsArray[$i]])) {
+											$breakFastCheckbox = $_POST['breakfastOfRoom'.$selectedRoomsArray[$i]];
+											if($breakFastCheckbox == 'yes')
+												$jsonObject = $jsonObject.' "b" : "1" , ';
+										}
+								else
+									$jsonObject = $jsonObject.' "b" : "0" , ';
+								if(isset($_POST['lunchOfRoom'.$selectedRoomsArray[$i]])) {
+											$lunchCheckbox = $_POST['lunchOfRoom'.$selectedRoomsArray[$i]];
+											if($lunchCheckbox == 'yes')
+												$jsonObject = $jsonObject.' "l" : "1" , ';
+										}
+								else
+									$jsonObject = $jsonObject.' "l" : "0" , ';
+								if(isset($_POST['dinnerOfRoom'.$selectedRoomsArray[$i]])) {
+											$dinnerCheckbox = $_POST['dinnerOfRoom'.$selectedRoomsArray[$i]];
+											if($dinnerCheckbox == 'yes')
+												$jsonObject = $jsonObject.' "d" : "1" , ';
+										}
+								else
+									$jsonObject = $jsonObject.' "d" : "0" , ';
+								if(isset($_POST['spaOfRoom'.$selectedRoomsArray[$i]])) {
+											$spaCheckbox = $_POST['spaOfRoom'.$selectedRoomsArray[$i]];
+											if($spaCheckbox == 'yes')
+												$jsonObject = $jsonObject.' "s" : "1" } ';
+										}
+								else
+									$jsonObject = $jsonObject.' "s" : "0" } ';
+								
+								$roomJsonObject=$roomJsonObject.$jsonObject;
+							}
+						$roomJsonObject=$roomJsonObject.']';
 
-						// 	}
-					
+						echo $roomJsonObject;
+						$rooms = json_decode($roomJsonObject);
+				
+						foreach($rooms as $key =>$value){ 
+							  echo 'ID : '.$rooms[$key]->id;
+						}
 						?>
 	     		 	
-				    <form id="contact-form" action="finalRegistration.php" method="post">
+				    <form id="contact-form" action="confirmation.php" method="post">
 						<h2>Va rugam sa completati campurile de mai jos cu datele personale.</h2>
 						<div>
 							<label>
@@ -99,8 +132,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 							echo '<input type="text" id="totalReservationCost" name="totalReservationCost" value="'.$totalCost.'" hidden/>';
 							echo '<input type="text" name="startDate" value="'.$startDate.'" hidden/>';
 							echo '<input type="text" name="endDate" value="'.$endDate.'" hidden/>';
-							echo '<input type="text" id="selectedRooms" name="selectedRooms" value="'.$selectedRooms.'" hidden/>';
-							echo '<input type="text" id="clientId" name="clientId" value="1" hidden/>';
+							echo "<input type='text' id='selectedRooms' name='selectedRooms' value='".$roomJsonObject."' hidden/>";
 						?>	
 						<div>
 							<button name="personalDataSubmit" type="submit" id="personalDataSubmit">Submit date personale</button>
@@ -117,5 +149,4 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 		<p>Copyright &copy; 2014  <a class="orangeMarked" href="#">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
 	</footer>
 </body>
-	<script src="js/clientInfo.js"></script>
 </html>

@@ -1,25 +1,8 @@
 
-function testFunction(){
-	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-
-	$("#selectedRooms").val(JSON.stringify(person));
-	alert($("#selectedRooms").val());
-}
-
-function submitRoomSelection(){
-	var xhr = Ti.Network.createHTTPClient();
-	xhr.open("POST", "clientInfo.php");
-	xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
- 
-	var postData = {
-	    object: { child1:'value', child2:'value' }
-	}
-	xhr.send(postData);
-}
 
 
 function createSelectedRoomsString(){
-	var selectedRooms="";
+	var selectedRooms=" ";
 	var totalPrice = 0;
 
 	$('input:checkbox.singleRoomCheckbox').each(function () {
@@ -41,12 +24,7 @@ function createSelectedRoomsString(){
     }
   });
 	$("#selectedRooms").val(selectedRooms);
-	
-		// $('input:checkbox.RoomBreakfastCheckbox').each(function () {
-	 	//    	if(this.checked) {
-	 	//    		totalPrice = totalPrice + breakfastPrice;
-	 	//    }
-	 	//  });
+
 
 	
 }
