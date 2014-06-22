@@ -34,12 +34,15 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-					<header>
-						<h1>Rezervari Pensiunea Oltea</h1>
-					</header>
+					
 					
 					<content>
 						<?php 
+						if (isset($_SESSION['visited'])) {
+						    header("Location: rezervari.php");
+						} else {
+						    $_SESSION['visited'] = true;
+						}
 						$totalCost = trim(htmlspecialchars($_POST['totalReservationCost']));
 						$startDate = trim(htmlspecialchars($_POST['startDate']));
 						$endDate  = trim(htmlspecialchars($_POST['endDate']));
@@ -90,7 +93,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 						 }
 						?>
 	     		 	
-				    <form id="contact-form" action="clientRegistration.php" method="post">
+				 
 						<h2>Inregistrare facuta cu success</h2>
 						
 						<?php 
@@ -98,12 +101,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 							echo '<div>In scurt timp veti primi un mai de confirmare de la unul din operatorii nostri</div>'
 
 						?>	
-						<div>
-							<button name="finalRegistrationSubmit" type="submit" id="finalRegistrationSubmit">Submit final registration</button>
-						</div>
-					</form>
-						
-		
+			
 					</content>
 
 				</article>

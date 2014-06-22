@@ -94,12 +94,6 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 							}
 						$roomJsonObject=$roomJsonObject.']';
 
-						echo $roomJsonObject;
-						$rooms = json_decode($roomJsonObject);
-				
-						foreach($rooms as $key =>$value){ 
-							  echo 'ID : '.$rooms[$key]->id;
-						}
 						?>
 	     		 	
 				    <form id="contact-form" action="confirmation.php" method="post">
