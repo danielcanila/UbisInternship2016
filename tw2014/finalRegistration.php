@@ -69,41 +69,17 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					
 						?>
 	     		 	
-				    <form id="contact-form" action="finalRegistration.php" method="post">
-						<h2>Va rugam sa completati campurile de mai jos cu datele personale.</h2>
-						<div>
-							<label>
-								<span>Nume*: </span>
-								<input placeholder="Nume" type="text" tabindex="1" name="name" required autofocus>
-							</label>
-						</div>
-						<div>
-							<label>
-								<span>Prenume*: </span>
-								<input placeholder="Prenume" type="text" tabindex="1" name="surname" required autofocus>
-							</label>
-						</div>
-						<div>
-							<label>
-								<span>Numar de telefon*: </span>
-								<input placeholder="Numar de telefon" type="text" tabindex="1" name="phoneNumber" required autofocus>
-							</label>
-						</div>
-						<div>
-							<label>
-								<span>Email*: </span>
-								<input placeholder="Adresa de E-mail" type="email" tabindex="2" name="email"  required>
-							</label>
-						</div>
+				    <form id="contact-form" action="clientRegistration.php" method="post">
+						<h2>SUMAR</h2>
+						
 						<?php 
 							echo '<input type="text" id="totalReservationCost" name="totalReservationCost" value="'.$totalCost.'" hidden/>';
 							echo '<input type="text" name="startDate" value="'.$startDate.'" hidden/>';
 							echo '<input type="text" name="endDate" value="'.$endDate.'" hidden/>';
 							echo '<input type="text" id="selectedRooms" name="selectedRooms" value="'.$selectedRooms.'" hidden/>';
-							echo '<input type="text" id="clientId" name="clientId" value="1" hidden/>';
 						?>	
 						<div>
-							<button name="personalDataSubmit" type="submit" id="personalDataSubmit">Submit date personale</button>
+							<button name="finalRegistrationSubmit" type="submit" id="finalRegistrationSubmit">Submit final registration</button>
 						</div>
 					</form>
 						

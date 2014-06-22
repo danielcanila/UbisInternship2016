@@ -1,3 +1,11 @@
+
+function testFunction(){
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+	$("#selectedRooms").val(JSON.stringify(person));
+	alert($("#selectedRooms").val());
+}
+
 function submitRoomSelection(){
 	var xhr = Ti.Network.createHTTPClient();
 	xhr.open("POST", "clientInfo.php");
@@ -10,54 +18,37 @@ function submitRoomSelection(){
 }
 
 
-function testareFunctie(singleRoomPrice,doubleRoomPrice,tripleRoomPrice,breakfastPrice,lunchPrice,dinnerPrice,spaPrice){
-	var selectedRooms = new Array();
+function createSelectedRoomsString(){
+	var selectedRooms="";
 	var totalPrice = 0;
 
 	$('input:checkbox.singleRoomCheckbox').each(function () {
     	if(this.checked) {
-    		selectedRooms.push(this.id.replace("room",""));
-    		totalPrice = totalPrice + singleRoomPrice;
+    		selectedRooms= selectedRooms +" "+this.id.replace("room","");
+    		
     	}
   });
 	$('input:checkbox.doubleRoomCheckbox').each(function () {
     	if(this.checked) {
-    		selectedRooms.push(this.id.replace("room",""));
-    		totalPrice = totalPrice + doubleRoomPrice;
+    			selectedRooms= selectedRooms +" "+this.id.replace("room","");
+    		
     	}
   });
 	$('input:checkbox.tripleRoomCheckbox').each(function () {
     	if(this.checked) {
-    		selectedRooms.push(this.id.replace("room",""));
-    		totalPrice = totalPrice + tripleRoomPrice;
+    			selectedRooms= selectedRooms +" "+this.id.replace("room","");
+    		
     }
   });
+	$("#selectedRooms").val(selectedRooms);
+	
+		// $('input:checkbox.RoomBreakfastCheckbox').each(function () {
+	 	//    	if(this.checked) {
+	 	//    		totalPrice = totalPrice + breakfastPrice;
+	 	//    }
+	 	//  });
 
-	$('input:checkbox.RoomBreakfastCheckbox').each(function () {
-    	if(this.checked) {
-    		totalPrice = totalPrice + breakfastPrice;
-    }
-  });
-
-	$('input:checkbox.RoomLunchCheckbox').each(function () {
-    	if(this.checked) {
-    		totalPrice = totalPrice + lunchPrice;
-    }
-  });
-
-	$('input:checkbox.RoomDinnerCheckbox').each(function () {
-    	if(this.checked) {
-    		totalPrice = totalPrice + dinnerPrice;
-    }
-  });
-
-	$('input:checkbox.RoomSpaCheckbox').each(function () {
-    	if(this.checked) {
-    		totalPrice = totalPrice + spaPrice;
-    }
-  });
-
-	alert(totalPrice);
+	
 }
 
 
