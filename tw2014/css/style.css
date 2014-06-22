@@ -125,9 +125,7 @@ a:link, a:visited {
 .content  ul li {
 		list-style: none; 
 		margin: 0 auto;
-		float: left; 
-		display: inline; 
-	}
+}
 
 .content img {
 	width: 30%;
