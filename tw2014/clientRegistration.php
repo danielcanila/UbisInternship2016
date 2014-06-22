@@ -15,6 +15,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 <head>
 	<title>Pensiunea Oltea</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script src="js/lib/jquery-1.10.2.js"></script>
 	<meta content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -45,9 +46,8 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 				$singleRooms;
 				$doubleRooms;
 				$tripleRooms;
-
+				 $ini_array = parse_ini_file("nelo_config.ini");
      		 if (isset($_POST['rezerva'])) {
-     		 
      		 	 $from = date("Y-m-d", strtotime(trim(htmlspecialchars($_POST['from']))));
      		 	 $to = date("Y-m-d", strtotime(trim(htmlspecialchars($_POST['to']))));
      		 	 $numberOfRooms = trim(htmlspecialchars($_POST['numberOfRooms']));
@@ -71,20 +71,53 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
     			 				}
 
 				}	
-		
+				
+
+				
+				$perioada = date("d/m/Y", strtotime($from))." - ". date("d/m/Y", strtotime($to));
 				if($numberOfSingleRooms>0)
 				{	
 					echo 'Single<br>';
 					$count = 0;
 					$singleRooms = getRooms($from,$to,'1');
 					if(mysql_num_rows($singleRooms)==0){
-						echo 'No rooms availabe';
+						echo 'Nu sunt camere single libere in perioada de '.$perioada;
 					}
 					else
-					while ($row = mysql_fetch_row($singleRooms)) {
-						if(($count++) == $numberOfSingleRooms)
-							break;
-			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					{ 	
+						echo '<table id="singleRoomsTable" class="roomsTable">';
+						echo '<thead>
+						<tr> 
+							<th> Selectati camera </th>
+							<th> Tip Camera </th>
+							<th> Start Date </th>
+							<th> End Date </th>
+							<th> Facilitati </th>
+							<th> Pret (RON) </th>
+						</tr>
+						</thead>
+							<tbody>';
+							$rowNumber = 0;
+							while ($row = mysql_fetch_row($singleRooms)) {
+								//if(($count++) == $numberOfSingleRooms)
+									//break;
+					    		echo "<tr>
+					    				<th><input type='checkbox' id='room$row[5]' onclick='updateSelectedRooms($rowNumber,1,this,$row[5])'></th>
+					    				<th>$row[3]</th>
+					    				<th>$row[1]</th>
+					    				<th>$row[2]</th>
+					    				<th>
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,1,this,$row[5])'>Breakfast
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,1,this,$row[5])'>Lunch
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,1,this,$row[5])'>Dinner
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,1,this,$row[5])'>Spa
+					    				</th>
+					    				<th id='singleRoomPrice$rowNumber'>$row[4]</th>
+					    			  </tr>";
+					    		$rowNumber++;
+							}
+						echo '</tbody>
+							</table>';
 					}
 				}
 				echo '<br>';
@@ -94,13 +127,43 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					$count = 0;
 					$doubleRooms = getRooms($from,$to,'2');
 					if(mysql_num_rows($doubleRooms)==0){
-						echo 'No rooms availabe';
+						echo 'Nu sunt camere double libere in perioada de '.$perioada;
 					}
 					else
-					while ($row = mysql_fetch_row($doubleRooms)) {
-			    		if(($count++) == $numberOfDoubleRooms)
-							break;
-			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					{ 	
+						echo '<table id="doubleRoomsTable" class="roomsTable">';
+						echo '<thead>
+						<tr> 
+							<th> Selectati camera </th>
+							<th> Tip Camera </th>
+							<th> Start Date </th>
+							<th> End Date </th>
+							<th> Facilitati </th>
+							<th> Pret (RON) </th>
+						</tr>
+						</thead>
+							<tbody>';
+							$rowNumber = 0;
+							while ($row = mysql_fetch_row($doubleRooms)) {
+								//if(($count++) == $numberOfDoubleRooms)
+									//break;
+					    		echo "<tr>
+					    				<th><input type='checkbox' id='room$row[5]' onclick='updateSelectedRooms($rowNumber,2,this,$row[5])'></th>
+					    				<th>$row[3]</th>
+					    				<th>$row[1]</th>
+					    				<th>$row[2]</th>
+					    				<th>
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,2,this,$row[5])'>Breakfast
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,2,this,$row[5])'>Lunch
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,2,this,$row[5])'>Dinner
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,2,this,$row[5])'>Spa
+					    				</th>
+					    				<th id='doubleRoomPrice$rowNumber'>$row[4]</th>
+					    			  </tr>";
+					    		$rowNumber++;
+							}
+						echo '</tbody>
+							</table>';
 					}
 				}
 				echo '<br>';
@@ -110,19 +173,50 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					$count = 0;
 					$tripleRooms = getRooms($from,$to,'3');
 					if(mysql_num_rows($tripleRooms)==0){
-						echo 'No rooms availabe';
+						echo 'Nu sunt camere triple libere in perioada de '.$perioada;
 					}
 					else
-					while ($row = mysql_fetch_row($tripleRooms)) {
-			    		if(($count++) == $numberOfTripleRooms)
-							break;
-			    		echo "{$row[0]} {$row[1]} {$row[2]} {$row[3]} {$row[4]} <br>";
+					{ 	
+						echo '<table id="tripleRoomsTable" class="roomsTable">';
+						echo '<thead>
+						<tr> 
+							<th> Selectati camera </th>
+							<th> Tip Camera </th>
+							<th> Start Date </th>
+							<th> End Date </th>
+							<th> Facilitati </th>
+							<th> Pret (RON) </th>
+						</tr>
+						</thead>
+							<tbody>';
+							$rowNumber = 0;
+							while ($row = mysql_fetch_row($tripleRooms)) {
+								//if(($count++) == $numberOfTripleRooms)
+									//break;
+					    		echo "<tr>
+					    				<th><input type='checkbox' id='room$row[5]' onclick='updateSelectedRooms($rowNumber,3,this,$row[5])'></th>
+					    				<th>$row[3]</th>
+					    				<th>$row[1]</th>
+					    				<th>$row[2]</th>
+					    				<th>
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='breakfast' onclick='updateSum($ini_array[breakfast],$rowNumber,3,this,$row[5])'>Breakfast
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='lunch'	  onclick='updateSum($ini_array[lunch],$rowNumber,3,this,$row[5])'>Lunch
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='dinner'    onclick='updateSum($ini_array[dinner],$rowNumber,3,this,$row[5])'>Dinner
+						    				<input type='checkbox' class='singleRoomCheckbox$rowNumber' value='spa'       onclick='updateSum($ini_array[spa],$rowNumber,3,this,$row[5])'>Spa
+					    				</th>
+					    				<th id='tripleRoomPrice$rowNumber'>$row[4]</th>
+					    			  </tr>";
+					    		$rowNumber++;
+							}
+						echo '</tbody>
+							</table>';
+
 					}
 				}
-
-				
-				
-
+				echo '<div> Breakfast : '.$ini_array["breakfast"].
+						' RON | Lunch : '.$ini_array["lunch"].
+						' RON | Dinner : '.$ini_array["dinner"].
+						' RON | Spa : '.$ini_array["spa"].' RON</div>';
 				
 
 				/*
@@ -141,6 +235,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
      		 	 //insertReservation($register_data);
      			 }
 			?>
+			   TOTAL COST : <label id="totalReservationCost">0</label> RON
 			   <form id="contact-form" action="clientRegistration.php" method="post">
 						<h2>Va rugam sa completati campurile de mai jos pentru a rezerva un loc in pensiunea noastra.</h2>
 						<div>
@@ -201,4 +296,74 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 		<p>Copyright &copy; 2014  <a class="orangeMarked" href="#">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
 	</footer>
 </body>
+<SCRIPT>
+
+var selectedRooms = new Array();
+
+function updateSelectedRooms(rowNumber,type,element,roomId){
+
+updateTotalCost(type,rowNumber,element);
+
+}
+
+function updateTotalCost(type,rowNumber,element){
+	var roomType;
+	if(type==1)
+		roomType = "single";
+	else
+		if(type==2)
+			roomType="double";
+		else
+			if(type==3)
+				roomType="triple";
+	var roomName = roomType+"RoomPrice"+rowNumber;
+	var totalRoomCost = parseInt($("#"+roomName).html());
+
+	var totalCost = parseInt($("#totalReservationCost").html());
+
+	if(element.checked){
+		totalCost = totalCost + totalRoomCost;
+	}
+	else{
+		totalCost = totalCost - totalRoomCost;
+	}
+	$("#totalReservationCost").html(totalCost);
+}
+
+function updateSum(amount,number,type,element,roomId){
+
+var rowNumber = number;
+var roomType;
+if(type==1)
+	roomType = "single";
+else
+	if(type==2)
+		roomType="double";
+	else
+		if(type==3)
+			roomType="triple";
+
+var priceElement = roomType+"RoomPrice"+rowNumber;
+var totalAmount = parseInt($("#"+priceElement).html());
+if(element.checked){
+	totalAmount = totalAmount + amount;
+}
+else{
+	totalAmount = totalAmount - amount;
+}
+$("#"+priceElement).html(totalAmount);
+
+//update global cost
+var totalCost = parseInt($("#totalReservationCost").html());
+if(document.getElementById("room"+roomId).checked){
+		if(element.checked){
+			totalCost = totalCost + amount;
+		}
+		else{
+			totalCost = totalCost - amount;
+		}
+		$("#totalReservationCost").html(totalCost);
+	}
+}
+</SCRIPT>
 </html>

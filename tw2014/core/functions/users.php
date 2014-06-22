@@ -50,6 +50,6 @@ function insertReservation($register_data){
 }
 
 function getRooms($startDate,$endDate,$type){
-	return $result = mysql_query("SELECT rezervation.id, rezervation.startDate, rezervation.endDate, rooms.type, rooms.price FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.id WHERE rezervation.startDate> '$startDate' AND rezervation.endDate<'$endDate' AND rooms.type='$type'");
+	return $result = mysql_query("SELECT rezervation.id, rezervation.startDate, rezervation.endDate, rooms.type, rooms.price,rooms.id FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.id WHERE rezervation.startDate> '$startDate' AND rezervation.endDate<'$endDate' AND rooms.type='$type'");
 }
 ?>
