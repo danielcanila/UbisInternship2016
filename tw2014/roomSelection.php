@@ -2,8 +2,6 @@
 
 include 'core/init.php';
 
-   
-
 $paypal_url='https://www.paypal.com/cgi-bin/webscr';
 $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 					
@@ -282,7 +280,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 		</div>
 	</div>
 	<footer class="mainFooter">
-		<p>Copyright &copy; 2014  <a class="orangeMarked" href="#">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
+		<p>Copyright &copy; 2014  <a class="orangeMarked" href="../tw2014/documentatie/">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
 	</footer>
 </body>
 	<script src="js/roomSelection.js"></script>

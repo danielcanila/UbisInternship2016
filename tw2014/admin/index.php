@@ -62,7 +62,7 @@ if (empty($_POST)==false){
 		</div>
 	</div>
 	<footer class="mainFooter">
-		<p>Copyright &copy; 2014  <a class="orangeMarked" href="#">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
+		<p>Copyright &copy; 2014  <a class="orangeMarked" href="../tw2014/documentatie/">Pisarciuc Ionut-Daniel & Canila Ovidiu-Daniel</a></p>
 	</footer>
 </body>
 </html>
