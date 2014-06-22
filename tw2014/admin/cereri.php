@@ -54,7 +54,7 @@ protect_page();
 
 					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, clients.phone, rezervation.startDate, rezervation.endDate, rezervation.totalCost, rezervation.breakfast, rezervation.dinner, rezervation.lunch, rezervation.spa, rooms.type FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.type INNER JOIN clients ON rezervation.clientId=clients.id GROUP BY clients.id ") or die (mysql_error());
 						
-						echo "<table id='table'>";
+						echo "<table class='table'>";
 								echo " <thead>
 					               <tr><td colspan=6></td></tr>
 					                <tr>
