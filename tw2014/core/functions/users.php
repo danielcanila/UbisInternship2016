@@ -49,7 +49,22 @@ function insertReservation($register_data){
 	 echo mysql_query("INSERT INTO `rezervation` ($fields) VALUES ($data)");
 }
 
-function getRooms($startDate,$endDate,$type){
-	return $result = mysql_query("SELECT rezervation.id, rezervation.startDate, rezervation.endDate, rooms.type, rooms.price FROM rezervation INNER JOIN rooms ON rezervation.roomId=rooms.id WHERE rezervation.startDate> '$startDate' AND rezervation.endDate<'$endDate' AND rooms.type='$type'");
+function getFreeRooms($startDate,$endDate,$type){
+
+	 $result = mysql_query("SELECT rooms.id,rooms.type,rooms.price
+		FROM rooms 
+		WHERE rooms.type='$type' 
+		AND 
+		rooms.id NOT IN 
+			(SELECT rooms.id 
+			 FROM rezervation 
+			 INNER JOIN rooms 
+			 ON rezervation.roomId=rooms.id 
+			 WHERE (rezervation.startDate<='$startDate' AND rezervation.endDate>='$startDate') 
+			 OR (rezervation.startDate<='$endDate' AND rezervation.endDate>='$endDate') 
+			 AND rooms.type='$type' )");
+
+	
+	 return $result;
 }
 ?>

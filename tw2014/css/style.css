@@ -372,6 +372,7 @@ a:link, a:visited {
 		display: inline;
 	}
 
+<<<<<<< HEAD
 
 	#table {
     width: 100%;
@@ -397,3 +398,46 @@ a:link, a:visited {
 }
  		
  		
+=======
+.roomsTable table,th,td {
+	border:1px solid black;
+	text-align: center;
+}
+
+#table {
+width: 100%;
+height: auto;
+text-align:left;
+color: #60606;
+
+}
+
+#table thead tr th
+{   text-align: center;
+padding: 0.4em;
+background-color: #808080;
+color: white;
+}
+
+
+#table tbody tr:nth-child(odd) {
+background-color: #fafafa;
+text-align: center;
+
+}
+
+
+#table tbody tr:nth-child(odd):hover
+{
+cursor:pointer;
+background-color: silver;     
+color: white;
+}
+
+
+#table td {
+vertical-align:middle;
+padding: 0.5em;
+}
+
+>>>>>>> 033934ef40e97040b30f512c178b32d66af63297
