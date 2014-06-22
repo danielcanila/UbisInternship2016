@@ -36,7 +36,7 @@ include 'core/init.php';
 				<content>
 
 			<content>
-			   <form id="contact-form" action="clientRegistration.php" method="post">
+			   <form id="contact-form" action="roomSelection.php" method="post">
 					
 						<div class="check-in">
 							<label for="from">
