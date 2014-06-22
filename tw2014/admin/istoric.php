@@ -37,7 +37,13 @@ protect_page();
 					</div>	
 						<?php
 
-					$result = mysql_query("SELECT clients.id, clients.name, clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id WHERE  DATE(reservationsdetails.endDate) < DATE(NOW()) ") or die (mysql_error());
+					$result = mysql_query("SELECT clients.id, clients.name, clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, reservations.totalCost 
+						FROM reservationsdetails 
+						INNER JOIN rooms ON reservationsdetails.roomId=rooms.type 
+						INNER JOIN clients ON reservationsdetails.clientId=clients.id 
+						INNER JOIN reservations ON reservationsdetails.reservationId = reservations.Id 
+						WHERE  DATE(reservationsdetails.endDate) < DATE(NOW()) 
+						GROUP BY reservationsdetails.reservationId") or die (mysql_error());
 						
 						echo "<table class='table'>";
 								echo " <thead>
