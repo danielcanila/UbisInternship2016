@@ -40,13 +40,10 @@ function user_data($user_id){
 	}
 }
 
-function insertReservation($register_data){
 
-	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
-	$data = '\''.implode('\',\'',$register_data) . '\'';
 
-	 echo $data;
-	 echo mysql_query("INSERT INTO `rezervation` ($fields) VALUES ($data)");
+function getRooms($startDate,$endDate,$type){
+	return $result = mysql_query("SELECT reservationsdetails.id, reservationsdetails.startDate, reservationsdetails.endDate, rooms.type, rooms.price,rooms.id FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.id WHERE reservationsdetails.startDate> '$startDate' AND reservationsdetails.endDate<'$endDate' AND rooms.type='$type'");
 }
 
 function getFreeRooms($startDate,$endDate,$type){
@@ -57,14 +54,40 @@ function getFreeRooms($startDate,$endDate,$type){
 		AND 
 		rooms.id NOT IN 
 			(SELECT rooms.id 
-			 FROM rezervation 
+			 FROM reservationsdetails 
 			 INNER JOIN rooms 
-			 ON rezervation.roomId=rooms.id 
-			 WHERE (rezervation.startDate<='$startDate' AND rezervation.endDate>='$startDate') 
-			 OR (rezervation.startDate<='$endDate' AND rezervation.endDate>='$endDate') 
+			 ON reservationsdetails.roomId=rooms.id 
+			 WHERE (reservationsdetails.startDate<='$startDate' AND reservationsdetails.endDate>='$startDate') 
+			 OR (reservationsdetails.startDate<='$endDate' AND reservationsdetails.endDate>='$endDate') 
 			 AND rooms.type='$type' )");
 
 	
 	 return $result;
+}
+
+function addUser($register_data){
+
+	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
+	$data = '\''.implode('\',\'',$register_data) . '\'';
+	mysql_query("INSERT INTO `clients` ($fields) VALUES ($data)");
+	return mysql_insert_id();
+	}
+
+function addReservation($register_data){
+	
+	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
+	$data = '\''.implode('\',\'',$register_data) . '\'';
+
+	mysql_query("INSERT INTO `reservations` ($fields) VALUES ($data)");
+	return mysql_insert_id();
+}
+
+function insertReservationDetails($register_data){
+
+	$fields	= '`' .implode('`,`', array_keys($register_data)) .'`';
+	$data = '\''.implode('\',\'',$register_data) . '\'';
+
+	 mysql_query("INSERT INTO `reservationsdetails` ($fields) VALUES ($data)");
+	 return mysql_insert_id();
 }
 ?>
