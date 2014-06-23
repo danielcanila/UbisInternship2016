@@ -29,9 +29,9 @@ if (empty($_POST)==false){
 <head>
 	<title>Pensiunea Oltea</title>
 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
-	<meta content="width=device-width, initial-scale=1.0">
-
 </head>
 
 <body class="body">
@@ -43,7 +43,7 @@ if (empty($_POST)==false){
 		<div class="content">	
 				<article class="articleContent">	
 									
-					<content>
+					
 					<h1>Admin-Login</h1>
 					
 					<?php 
@@ -55,8 +55,6 @@ if (empty($_POST)==false){
            				}else{
             			include 'login/login.php';   }
           			?>
-					
-					</content>
 				
 				</article>
 		</div>

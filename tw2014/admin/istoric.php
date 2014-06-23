@@ -9,10 +9,9 @@ protect_page();
 <head>
 	<title>Pensiunea Oltea</title>
 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
-	<meta content="width=device-width, initial-scale=1.0">
-	
-
 </head>
 
 <body class="body">
@@ -80,8 +79,6 @@ protect_page();
 					   
 							
 						?>
-						
-					</content>
 				
 				</article>
 		</div>

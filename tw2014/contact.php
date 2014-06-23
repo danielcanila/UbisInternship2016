@@ -3,7 +3,9 @@
 <head>
 	<title>Pensiunea Oltea</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<meta content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+	
 </head>
 
 <body class="body">
@@ -24,8 +26,7 @@
 					<header>
 						<h1>Contact Pensiunea Oltea</h1>
 					</header>
-					
-					<content>
+				
 						<p>Pensiunea Oltea este situata in orasul Campulung Moldovenesc, Str. Alexandru Vlahuta nr 20. Pentru mai multe detalii in legatura cu locatia pensiunii va rog sa vizualizati 	
 						<a class="orangeMarked" href="localizare.html">Harta-Localizare</a> </p>
 						<p>Pentru mai multe informatii referitor la rezervari va rog sa folositi pagina dedicata acestei sectiuni:<a  class="orangeMarked" href="rezervari.html">Rezervari</a>. Daca doriti mai multe detalii in timp real va rugam sa ne contactati la numarul de telefon: <a class="orangeMarked" href="#">0723109090</a> persoana de contact <a class="orangeMarked" href="#">Hodor</a>.</p>
@@ -101,7 +102,6 @@
 							<button name="contact_submitted" type="submit" id="contact-submit">Trimite E-mail</button>
 						</div>
 					</form>
-					</content>
 				
 				</article>
 		</div>

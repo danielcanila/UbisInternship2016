@@ -14,9 +14,11 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 <html>
 <head>
 	<title>Pensiunea Oltea</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<script src="js/lib/jquery-1.10.2.js"></script>
-	<meta content="width=device-width, initial-scale=1.0">
+		
 </head>
 
 <body class="body">
@@ -38,7 +40,6 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 						<h1>Rezervari Pensiunea Oltea</h1>
 					</header>
 					
-					<content>
 						<?php 
 						$totalCost = trim(htmlspecialchars($_POST['totalReservationCost']));
 						$startDate = trim(htmlspecialchars($_POST['startDate']));
@@ -132,10 +133,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 							<button name="personalDataSubmit" type="submit" id="personalDataSubmit">Submit date personale</button>
 						</div>
 					</form>
-						
-		
-					</content>
-
+				
 				</article>
 		</div>
 	</div>

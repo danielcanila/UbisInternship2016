@@ -7,9 +7,9 @@ protect_page();
 <html>
 <head>
 	<title>Pensiunea Oltea</title>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
-	<meta content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 	<script>
 		
@@ -61,7 +61,7 @@ protect_page();
 		<div class="content">	
 				<article class="articleContent">	
 				
-					<content>
+					
 					<div class="logoutAdmin">
 					<input type="button" value="LogOut" onclick="location.href = 'logout.php';">
 					</div>
@@ -169,8 +169,6 @@ protect_page();
        				?>
 		
 		
-					</content>
-				
 				</article>
 
 		</div>

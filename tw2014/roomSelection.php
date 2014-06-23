@@ -33,8 +33,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 		<div class="content">	
 				<article class="articleContent">	
 					
-					
-					<content>
+				
 					<form id="roomSelection" action="clientInfo.php" method="post">
 								<?php 
 									$numberOfSingleRooms = 0;
@@ -275,7 +274,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 							<button name="roomsSubmit" onclick="createSelectedRoomsString()" type="submit" id="roomsSubmit">Submit rooms</button>
 						</div>
 						</form>
-					</content>
+				
 				</article>
 		</div>
 	</div>

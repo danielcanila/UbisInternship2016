@@ -14,9 +14,10 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 <html>
 <head>
 	<title>Pensiunea Oltea</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<script src="js/lib/jquery-1.10.2.js"></script>
-	<meta content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="body">
@@ -34,9 +35,7 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 	<div class="mainContent" >
 		<div class="content">	
 				<article class="articleContent">	
-					
-					
-					<content>
+				
 						<?php 
 						// if (isset($_SESSION['visited'])) {
 						//     header("Location: rezervari.php");
@@ -102,7 +101,6 @@ $paypal_id='ionutdny9-facilitator@gmail.com'; // Business email ID
 
 						?>	
 			
-					</content>
 
 				</article>
 		</div>

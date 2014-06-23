@@ -35,7 +35,6 @@ include 'core/init.php';
 				<article class="articleContent">	
 				<content>
 
-			<content>
 			   <form id="contact-form" action="roomSelection.php" method="post">
 					
 						<div class="check-in">
@@ -73,7 +72,7 @@ include 'core/init.php';
 						</div>
 	
 				</form>
-			</content>
+			
 				
 				</article>
 		</div>

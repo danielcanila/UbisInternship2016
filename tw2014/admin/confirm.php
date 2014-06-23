@@ -8,8 +8,9 @@ protect_page();
 <head>
 	<title>Pensiunea Oltea</title>
 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
-	<meta content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 	<script>
 		function deleteReservation(q){
@@ -53,7 +54,7 @@ protect_page();
 		<div class="content">	
 				<article class="articleContent">	
 				
-					<content>
+					
 					<div class="logoutAdmin">
 					<input type="button" value="LogOut" onclick="location.href = 'logout.php';">
 					</div>
@@ -101,7 +102,7 @@ protect_page();
 					           		  	echo "<br><li>Faciliati:".$query2['breakfast'].",".$query2['lunch'].",".$query2['dinner'].",".$query2['spa']."</li><br>";
 										
 									
-										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$reservationId."')\" value='Decline'/></form>";	
+										echo "<form><input type='button' onclick=\"deleteReservation('deleteReservation.php?id=".$reservationId."')\" value='Delete'/></form>";	
 									
 					         							         			
 					         			echo "</ul>";
@@ -116,8 +117,6 @@ protect_page();
 						?>
 					
 		
-					</content>
-				
 				</article>
 
 		</div>
