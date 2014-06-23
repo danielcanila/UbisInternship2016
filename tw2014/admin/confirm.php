@@ -64,8 +64,17 @@ protect_page();
        				
 
 					$result = mysql_query("SELECT clients.id, clients.name, clients.surname, 
-						clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, 
-						reservationsdetails.reservationId, reservations.totalCost, reservationsdetails.breakfast, reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type,reservations.status FROM reservationsdetails INNER JOIN rooms ON reservationsdetails.roomId=rooms.type INNER JOIN clients ON reservationsdetails.clientId=clients.id INNER JOIN reservations ON reservationsdetails.reservationId = reservations.id WHERE reservations.status = '1' GROUP BY clients.id ") or die (mysql_error());
+						 clients.phone, reservationsdetails.startDate, reservationsdetails.endDate, 
+						 reservationsdetails.reservationId, reservations.totalCost, reservationsdetails.breakfast,
+						 reservationsdetails.dinner, reservationsdetails.lunch, reservationsdetails.spa, rooms.type,
+						 reservations.status 
+						 FROM reservationsdetails 
+						 INNER JOIN rooms ON reservationsdetails.roomId=rooms.type 
+						 INNER JOIN clients ON reservationsdetails.clientId=clients.id 
+						 INNER JOIN reservations ON reservationsdetails.reservationId = reservations.id 
+						 WHERE reservations.status = '1' 
+						 AND DATE(reservationsdetails.startDate) > DATE(NOW())  
+						 GROUP BY clients.id ") or die (mysql_error());
 						
 						echo "<table class='table'>";
 								echo " <thead>
