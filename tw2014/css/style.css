@@ -170,6 +170,13 @@ a:link, a:visited {
 .logoutAdmin input:hover {
 	color:red;
 }
+
+iframe {
+
+	width: 70%;
+	min-height:70%; 
+	margin: 3% 0;
+}
 @media only screen and (min-width : 150px) and (max-width : 780px)
 {
 	.body {
@@ -231,16 +238,19 @@ a:link, a:visited {
 		width: 100%;
 		float: left;
 	}
-	.content ul li{
-		text-align: left;
-		width: 100%;
-	}
+
 
 	.content img {
 		width: 100%;
 		height: auto;
 		margin-bottom: 3%;
 	}
+	iframe {
+
+	width: 100%;
+	height: auto; 
+	
+}
 	.mainFooter {
 		width: 100%;
 		float: left;
