@@ -1,7 +1,6 @@
 <?php 
 
 include 'core/init.php';
-
    
 
 $paypal_url='https://www.paypal.com/cgi-bin/webscr';
