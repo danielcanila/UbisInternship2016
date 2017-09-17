@@ -2,7 +2,7 @@
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		System.out.println("Hello all! I changed this!");
+		System.out.println("Hello all! Now we have both changes merged!");
 	}
 
 }
