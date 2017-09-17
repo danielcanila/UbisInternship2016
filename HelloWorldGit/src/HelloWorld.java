@@ -7,8 +7,10 @@ public class HelloWorld {
 		System.out.println("Now lets stage a conflict! Revision from master & branch side!");
 		System.out.println("Changes i am going to loose.");
 
-		// refresh me already!
-		// yet another set of changes from site!
+        // refresh me already!
+        // yet another set of changes from site!
+
+        // new change
 	}
 
 }
